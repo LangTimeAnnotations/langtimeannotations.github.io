@@ -212,14 +212,14 @@ var app = new Vue({
             var that = this;
             if (this.search == "") {
                 return episode236.filter((annotation) => {
-                    return (annotation.category == "Main" && that.mainFilter)
+                    return (annotation.category == "" && that.mainFilter)
                         || (annotation.category == "Poll" && that.pollFilter)
                         || (annotation.category == "Chat" && that.chatFilter)
                         || (annotation.category == "Chat Question" && that.chatQuestionFilter);
                 })
             }
             return episode236Fuse.search(this.search).filter((annotation) => {
-                return (annotation.item.category == "Main" && that.mainFilter)
+                return (annotation.item.category == "" && that.mainFilter)
                     || (annotation.item.category == "Poll" && that.pollFilter)
                     || (annotation.item.category == "Chat" && that.chatFilter)
                     || (annotation.item.category == "Chat Question" && that.chatQuestionFilter);
