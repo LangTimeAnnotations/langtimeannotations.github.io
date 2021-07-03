@@ -332,6 +332,14 @@ var app = new Vue({
             this.indexShown = false;
             this.episodeShown = true;
             this.currentEpisode = ep;
+
+            // Reset filters
+            this.mainFilter = true,
+            this.pollFilter = true,
+            this.chatFilter = true;
+            this.chatQuestionFilter = true;
+            this.chatPollFilter = true;
+            this.kopikoTimeFilter = true;
         },
         getCurrentEpisode: function() {
             if (this.currentEpisode == "235") {
