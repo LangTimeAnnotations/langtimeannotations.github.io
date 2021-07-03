@@ -3,6 +3,7 @@ var index = [
 ]
 
 episode236Url = "https://youtu.be/vUOLfybOzdM"
+// NOTE: Chat vs. Offtopic???
 var episode236 = [
     { time: "00:00", category: "Chat", text: "Chat" },
     { time: "01:50", category: "Chat", text: "Jessie's Gingerade Kombucha" },
@@ -77,7 +78,7 @@ var episode236 = [
     { time: "38:57", category: "Chat", text: "David asks for meaning of \"ganz gut\". Jessie responds that it means \"entirely good\"." },
     { time: "39:23", category: "Chat Poll", text: "Position of diacritic on question mark glyph (A = centered diacritic; B = right-aligned diacritic)" },
     { time: "41:53", category: "Chat Poll", text: "Winner: A = 10; B = 6" },
-    { time: "41:58", category: "", text: "Celebrate, with Kopiko, David being right on number of A votes" },
+    { time: "41:58", category: "Kopiko Time", text: "Celebrate, with Kopiko, David being right on number of A votes" },
     { time: "42:30", category: "Chat", text: "\"the average person only has two eyes, it's reasonable that you were surprised bib has three\" - Magpie" },
     { time: "43:01", category: "", text: "David discusses kerning of question mark glyph" },
     { time: "44:15", category: "", text: "David looks at question mark glyph again" },
@@ -108,7 +109,7 @@ var episode236 = [
     { time: "01:11:58", category: "Chat", text: "Definition of Semelparity" },
     { time: "01:13:05", category: "", text: "Discussion on words for \"short\"" },
     { time: "01:13:35", category: "", text: "David finally notices Jessie is out of sync" },
-    { time: "01:13:48", category: "", text: "Cloudiness of Kombucha - \"Live Cultures\"" },
+    { time: "01:13:48", category: "Chat", text: "Cloudiness of Kombucha - \"Live Cultures\"" },
     { time: "01:14:11", category: "Chat", text: "Alk suggests \"iet\"" },
     { time: "01:14:38", category: "", text: "Jessie suggests \"koy\" for \"short\"" },
     { time: "01:15:08", category: "", text: "Jessie asks for more suggestions and bans \"k\" words" },
@@ -118,7 +119,7 @@ var episode236 = [
     { time: "01:17:41", category: "Chat", text: "\"make more knan s\" - Chris Helvey" },
     { time: "01:19:07", category: "Chat", text: "Language Pronunciation Woes (\"I'm gonna miss the cluster tomfoolery of this language\" - Miles)" },
     { time: "01:20:11", category: "", text: "Glyphs left to do - Just the numbers (0 through 6)" },
-    { time: "01:22:34", category: "", text: "Jessie's math score on GRE (which David confuses with ACT) was 780. Analytic score was 800." },
+    { time: "01:22:34", category: "Chat", text: "Jessie's math score on GRE (which David confuses with ACT) was 780. Analytic score was 800." },
     { time: "01:24:25", category: "Chat Question", text: "GRE Scoring Changes (\"I don't remember how GRE scoring works, but I do remember that I got exactly 1 point less than perfect.\" - Logan Kearsley)" },
     { time: "01:24:53", category: "", text: "David discusses how glyph for number four will look." },
     { time: "01:25:23", category: "Chat", text: "\"Exactly one of whatever the units were.\" - Logan Kearsley" },
@@ -136,8 +137,8 @@ var episode236 = [
     { time: "01:30:50", category: "", text: "Diamond glyph" },
     { time: "01:31:14", category: "Chat", text: "\"BRB gotta get some BBQ\" - Miles" },
     { time: "01:31:56", category: "Chat", text: "\"Diamond skewed like the lines?\" - The Applesauce Project" },
-    { time: "01:33:00", category: "", text: "Fondest memories of Season 2" },
-    { time: "01:35:38", category: "", text: "David says \"mathily\" weird" },
+    { time: "01:33:00", category: "Chat", text: "Fondest memories of Season 2" },
+    { time: "01:35:38", category: "Chat", text: "David says \"mathily\" weird" },
     { time: "01:36:06", category: "Chat", text: "\"I'm going to post my vegan falafels I made\" - Rag Doll" },
     { time: "01:36:13", category: "Chat", text: "\"just the language is absolutely insane grammatically\" - Evan Swart" },
     { time: "01:36:24", category: "Chat Question", text: "5 Languages for Game; 3 more seasons for mouse, dog, and cat (\"How many languages do y'all plan on doing before you have enough for the game?\" - (George) Corley English)" },
@@ -216,7 +217,8 @@ var app = new Vue({
                         || (annotation.category == "Poll" && that.pollFilter)
                         || (annotation.category == "Chat" && that.chatFilter)
                         || (annotation.category == "Chat Question" && that.chatQuestionFilter)
-                        || (annotation.category == "Chat Poll" && that.chatPollFilter);
+                        || (annotation.category == "Chat Poll" && that.chatPollFilter)
+                        || (annotation.category == "Kopiko Time" && that.kopikoTimeFilter);
                 })
             }
             return episode236Fuse.search(this.search).filter((annotation) => {
@@ -224,7 +226,8 @@ var app = new Vue({
                     || (annotation.item.category == "Poll" && that.pollFilter)
                     || (annotation.item.category == "Chat" && that.chatFilter)
                     || (annotation.item.category == "Chat Question" && that.chatQuestionFilter)
-                    || (annotation.item.category == "Chat Poll" && that.chatPollFilter);
+                    || (annotation.item.category == "Chat Poll" && that.chatPollFilter)
+                    || (annotation.item.category == "Kopiko Time" && that.kopikoTimeFilter);
             })
         }
     },
@@ -241,5 +244,6 @@ var app = new Vue({
         chatFilter: true,
         chatQuestionFilter: true,
         chatPollFilter: true,
+        kopikoTimeFilter: true,
     }
 })

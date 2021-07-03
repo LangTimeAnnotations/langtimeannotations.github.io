@@ -68,6 +68,7 @@
             }
             .listitem .text {
                 font-size: 1.1em;
+                margin-top: 3px;
             }
         </style>
     </head>
@@ -91,11 +92,12 @@
                     <input type="checkbox" name="chat" :checked="chatFilter" v-model="chatFilter"><label for="chat" v-on:click="chatFilter = !chatFilter;">Chat</label>
                     <input type="checkbox" name="chatquestion" :checked="chatQuestionFilter" v-model="chatQuestionFilter"><label for="chatquestion" v-on:click="chatQuestionFilter = !chatQuestionFilter;">Chat Question</label>
                     <input type="checkbox" name="chatpoll" :checked="chatPollFilter" v-model="chatPollFilter"><label for="chatpoll" v-on:click="chatPollFilter = !chatPollFilter;">Chat Poll</label>
+                    <input type="checkbox" name="kopikotime" :checked="kopikoTimeFilter" v-model="kopikoTimeFilter"><label for="kopikotime" v-on:click="kopikoTimeFilter = !kopikoTimeFilter;">Kopiko Time</label>
                 </div>
                 <div class="list">
                     <a v-for="annotation in getEpisodeInfo" :key="(annotation.item || annotation).text" class="listitem" :href="getUrl((annotation.item || annotation).time)">
-                        <span class="timestamp">{{ (annotation.item || annotation).time }}</span> <span class="category">{{ (annotation.item || annotation).category || "Main" }}</span><br>
-                        <span class="text">{{ (annotation.item || annotation).text }}</span>
+                        <span class="timestamp">{{ (annotation.item || annotation).time }}</span> <span class="category">{{ (annotation.item || annotation).category || "Main" }}</span>
+                        <div class="text">{{ (annotation.item || annotation).text }}</div>
                     </a>
                 </div>
             </div>
