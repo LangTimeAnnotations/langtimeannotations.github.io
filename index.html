@@ -12,6 +12,21 @@
                 border-bottom: 1px solid #444444;
                 margin-bottom: 15px;
             }
+            .backbutton {
+                border: 1px solid #999999;
+                border-radius: 4px;
+                margin-right: 10px;
+                padding: 5px;
+                transition: background-color 0.5s;
+            }
+            .backbutton:hover {
+                background-color: #CCCCCC;
+                cursor: pointer;
+            }
+            input {
+                padding: 5px;
+                width: 200px;
+            }
             .list {
                 margin-top: 10px;
                 margin-bottom: 10px;
@@ -20,7 +35,7 @@
                 color: inherit;
                 display: block;
                 text-decoration: none;
-                border: 1px solid #AAAA;
+                border: 1px solid #999999;
                 padding: 5px;
                 transition: background-color 0.5s;
             }
@@ -47,16 +62,29 @@
     </head>
     <body>
         <div id="app" class="container">
-            <h1>Langtime Annotations - Episode 236</h1>
-            <input v-model="search" class="fuzzy-search" placeholder="Search...">
-            <div class="list">
-                <a v-for="annotation in getEpisodeInfo" :key="(annotation.item || annotation).text" class="listitem" :href="getUrl((annotation.item || annotation).time)">
-                    <span class="timestamp">{{ (annotation.item || annotation).time }}</span> <span class="category">{{ (annotation.item || annotation).category || "Main" }}</span><br>
-                    <span class="text">{{ (annotation.item || annotation).text }}</span>
-                </a>
+            <div v-if="indexShown">
+                <h1>Langtime Annotations - Index</h1>
+                <input v-model="search" class="fuzzy-search" placeholder="Search Annotations...">
+                <div class="list">
+                    <div v-for="ep in index" :key="ep.episode" class="listitem" v-on:click="showEpisode()">
+                        Episode {{ ep.episode }}
+                    </div>
+                </div>
+            </div>
+            <div v-if="episodeShown">
+                <h1>Langtime Annotations - Episode 236</h1>
+                <span class="backbutton" v-on:click="showIndex()">← Index</span> <input v-model="search" class="fuzzy-search" placeholder="Search Episode Annotations...">
+                <div class="list">
+                    <a v-for="annotation in getEpisodeInfo" :key="(annotation.item || annotation).text" class="listitem" :href="getUrl((annotation.item || annotation).time)">
+                        <span class="timestamp">{{ (annotation.item || annotation).time }}</span> <span class="category">{{ (annotation.item || annotation).category || "Main" }}</span><br>
+                        <span class="text">{{ (annotation.item || annotation).text }}</span>
+                    </a>
+                </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!--<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>-->
         <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="./main.js"></script>

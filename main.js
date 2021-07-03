@@ -1,3 +1,7 @@
+var index = [
+    { episode: "236", url: "https://youtu.be/vUOLfybOzdM" },
+]
+
 episode236Url = "https://youtu.be/vUOLfybOzdM"
 var episode236 = [
     { time: "00:00", category: "Chat", text: "Chat" },
@@ -189,6 +193,18 @@ var app = new Vue({
             }
             seconds = time.seconds() + (time.minutes() * 60) + (time.hours() * 60 * 60)
             return episode236Url + "?t=" + seconds;
+        },
+        showIndex: function() {
+            this.page = "index";
+            this.episodeShown = false;
+            this.indexShown = true;
+            this.search = "";
+        },
+        showEpisode: function() {
+            this.search = "";
+            this.page = "episode";
+            this.indexShown = false;
+            this.episodeShown = true;
         }
     },
     computed: {
@@ -201,6 +217,10 @@ var app = new Vue({
     },
     data: {
         episode236: episode236,
+        index: index,
         search: "",
+        indexShown: true,
+        episodeShown: false,
+        page: "index", // index or episode
     }
 })
