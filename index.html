@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Langtime Annotations - Episode 236</title>
+        <meta charset="UTF-8">
+        <style>
+            .container {
+                margin: auto;
+                max-width: 800px;
+            }
+            h1 {
+                border-bottom: 1px solid #444444;
+                margin-bottom: 15px;
+            }
+            .list {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .listitem {
+                color: inherit;
+                display: block;
+                text-decoration: none;
+                border: 1px solid #AAAA;
+                padding: 5px;
+                transition: background-color 0.5s;
+            }
+            .listitem:hover {
+                background-color: #CCCCCC;
+                cursor: pointer;
+            }
+            .listitem .timestamp, .listitem .category {
+                font-size: .9em;
+            }
+            .listitem .timestamp {
+                color: #000088;
+            }
+            .listitem .category {
+                border: 1px solid #AAAAAA;
+                border-radius: 10px;
+                padding-left: 7px;
+                padding-right: 7px;
+            }
+            .listitem .text {
+                font-size: 1.1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1>Langtime Annotations - Episode 236</h1>
+            <input v-model="search" class="fuzzy-search" placeholder="Search...">
+            <div class="list">
+                <a v-for="annotation in getEpisodeInfo" :key="(annotation.item || annotation).text" class="listitem" :href="getUrl((annotation.item || annotation).time)">
+                    <span class="timestamp">{{ (annotation.item || annotation).time }}</span> <span class="category">{{ (annotation.item || annotation).category || "Main" }}</span><br>
+                    <span class="text">{{ (annotation.item || annotation).text }}</span>
+                </a>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="./main.js"></script>
+    </body>
+</html>
