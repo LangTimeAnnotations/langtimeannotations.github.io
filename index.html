@@ -78,7 +78,7 @@
                 <h1>Langtime Annotations - Index</h1>
                 <input type="text" v-model="search" class="fuzzy-search" placeholder="Search All Annotations...">
                 <div class="list">
-                    <div v-for="ep in index" :key="ep.episode" class="listitem" v-on:click="showEpisode()">
+                    <div v-for="ep in index" :key="ep.episode" class="listitem" v-on:click="showEpisode(ep.episode)">
                         Episode {{ ep.episode }}
                     </div>
                 </div>

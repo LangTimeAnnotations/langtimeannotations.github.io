@@ -1,8 +1,11 @@
 var index = [
-    { episode: "236", url: "https://youtu.be/vUOLfybOzdM" },
+    { episode: "235", url: "https://www.youtube.com/watch?v=uWFeV6G1EZE" },
+    { episode: "236", url: "https://www.youtube.com/watch?v=vUOLfybOzdM" },
 ]
 
-episode236Url = "https://youtu.be/vUOLfybOzdM"
+episode236Url = "https://www.youtube.com/watch?v=vUOLfybOzdM"
+episode235Url = "https://www.youtube.com/watch?v=uWFeV6G1EZE"
+
 // NOTE: Chat vs. Offtopic???
 var episode236 = [
     { time: "00:00", category: "Chat", text: "Chat" },
@@ -179,8 +182,129 @@ var episode236 = [
     { time: "02:07:28", category: "", text: "Surprise Hint? Hint possibly already given in episode previously, from a suggestion by David." },
     { time: "02:09:10", category: "Chat", text: "Dreaming of Kopiko sponsorship and T-shirts" },
 ]
-
 const episode236Fuse = new Fuse(episode236, { findAllMatches: true, shouldSort: true, includeScore: true, keys: [{ name: 'category', weight: 0.7 }, { name: 'text', weight: 0.3 }], threshold: 0.5, distance: 120 })
+
+var episode235 = [
+    { time: "00:00", category: "Chat", text: "Chat" },
+    { time: "00:58", category: "Main", text: "David shows Matthijs the classifiers from Sheli, David's contratone language" },
+    { time: "03:12", category: "Chat", text: "Sheli's writing system (\"That writing system looks badass!\" - Miles)" },
+    { time: "03:22", category: "Main", text: "Chair problems" },
+    { time: "03:42", category: "Chat", text: "Aweful execution of Sheli's writing system, according to David" },
+    { time: "05:20", category: "Chat", text: "Dictionary entries for classifiers" },
+    { time: "06:02", category: "Chat Question", text: "High Valyrian adjectives History (\"Random question: Are we allowed to know the history behind the alternation that happens with High Valyrian adjectives depending on whether they come before or after the noun?\" - Biblaridion)" },
+    { time: "06:50", category: "Chat", text: "Latin avoids repetition of rhyming cases in Poetry" },
+    { time: "07:17", category: "Chat", text: "John Milton decried rhyming couplets in Paradise Lost's preface" },
+    { time: "07:58", category: "Chat", text: "Jessie's now ready to start (\"Hey! I'm here!\" - Minnie Scott)" },
+    { time: "08:09", category: "Chat", text: "David asks Jessie how he previously fixed his chair as he wrestles with it. He successfully fixes it." },
+    { time: "08:52", category: "Poll", text: "Patreon reciprocal strategies vote on pages 7-8 is discussed" },
+    { time: "10:49", category: "Poll", text: "Reciprocal strategies winner: Tail to Tail (Maximally Reduced). Received 15 votes." },
+    { time: "11:28", category: "Chat", text: "Jake's date (\"​Hey guys! Just finished with my date. Did anything happen before the poll results?\" - Jake Penny)" },
+    { time: "11:50", category: "Chat", text: "Matthijs' sink (\"I am highly diligent about keeping my sink clear and clean\" - Matthijs Krul)" },
+    { time: "12:06", category: "Chat", text: "Concerts in the park" },
+    { time: "12:18", category: "Chat", text: "\"We had a cheeky Nandos ... ​and watched drag race\" - Jake Penny" },
+    { time: "12:45", category: "Main", text: "David realizes notifications aren't disabled" },
+    { time: "13:03", category: "Chat", text: "How David learned about Nandos - controversial commercials" },
+    { time: "13:42", category: "Chat", text: "​Controversiamercials and Controversiamals (\"​Controversiamercials?\" - Minnie Scott)" },
+    { time: "14:14", category: "Chat", text: "2am Funerals (\"We didn't talk about Brexit but his we did talk about his nan dying (the funeral was at 2am this morning)\" - Jake Penny)" },
+    { time: "15:30", category: "Main", text: "David starts entering reciprocal pronoun \"zyizyis\" (\"each other\") from poll into dictionary" },
+    { time: "15:55", category: "Main", text: "Jessie explains dictionary being updated with all backentries" },
+    { time: "16:38", category: "Chat", text: "\"I'm meeting my s/o for the first time in person tomorrow in Iowa 🙂\" - Minnie Scott" },
+    { time: "18:29", category: "Poll", text: "Discussing second poll on David and Jessie's name meanings in Tpaalha" },
+    { time: "21:19", category: "Poll", text: "Poll Winners for David and Jessie's name meanings in Tpaalha are \"Summit (of a mountain)\", and \"bank of a river\", respectively" },
+    { time: "22:19", category: "Chat", text: "\"Whoa Jessie's gone soooo far out of sync\" - Meamer" },
+    { time: "23:07", category: "Chat", text: "Cowslip - a type of flower. Comes from Old English \"cūslyppe\" ('Cow' + 'Slime'), meaning cow slober or dung" },
+    { time: "25:35", category: "Main", text: "Asking if Jessie's sync issues are bad enough to need fixing" },
+    { time: "25:53", category: "Chat", text: "June 24th - Jessie's 3rd birthday of the year. Actually, 1 month anniversary of 40th birthday" },
+    { time: "26:36", category: "Chat", text: "\"​I see Jessie's mouth moving at pretty much the same time as the mouth-noises.\" - Logan Kearsley" },
+    { time: "26:50", category: "Chat", text: "David marvels at current date in Australia, but is disappointed at not being invited there for a talk." },
+    { time: "27:12", category: "Chat Question", text: "Jessie's \"3 birthdays\" - mistakenly filled out form that gave Jessie a different birthday, and friend getting her birthday 1 month off (\"how do you get 3 b'days?\" - Rag Doll)" },
+    { time: "28:23", category: "Main", text: "Fixing Jessie's sync issues" },
+    { time: "29:22", category: "Chat", text: "\"Ηαρργ βιρτδαγ\" - Noel Strüning" },
+    { time: "29:37", category: "Main", text: "Ready to enter Jessie and David's names into dictionary" },
+    { time: "29:53", category: "Main", text: "Jessie shows off work of listing dictionary order of inflected forms for nouns and verbs on page 38. David suggests moving it to page 36." },
+    { time: "30:42", category: "Chat", text: "Jessie is \"shooting daggers\" at David" },
+    { time: "33:00", category: "Main", text: "Dictionary entries for Jessie and David's names in Tpaalha, \"dabyid\" and \"dyisi\", respectively. David misspells \"summit\" as \"sumit\"." },
+    { time: "34:30", category: "Main", text: "David switches to Lexurgy to determine how the dual suffix attaches to words that end with a shwa." },
+    { time: "37:28", category: "Main", text: "Next steps - David will do font stuff, and Jessie will do more vocab creation. Jessie checks Patreon name entry submissions." },
+    { time: "38:37", category: "Chat", text: "\"​Tpaalha uses a Significant Other Verb word order\" - (Graham) Meamer" },
+    { time: "39:26", category: "Chat", text: "Laughing out lou (\"@Meamer Just laughed out lou ... *loud\" - Minnie Scott)" },
+    { time: "39:47", category: "Chat", text: "Jessie also needs a cup of tea (\"I don't think my cup of tea is coming. I think someone fell asleep\" - Rag Doll)" },
+    { time: "39:58", category: "Chat", text: "Jessie would date a verb. David says \"verbs are nothing but trouble\". (\"who would date a verb though?? awful word class\" - Matthijs Krul)" },
+    { time: "40:29", category: "Main", text: "Left side of document, or whole thing? Mostly left." },
+    { time: "41:45", category: "Chat", text: "Jessie has flashback about David asking about the top of his head" },
+    { time: "42:12", category: "Chat", text: "Snacks" },
+    { time: "42:45", category: "Main", text: "David starts modern font work for Tpaalha" },
+    { time: "42:56", category: "Chat", text: "Vegan Pizza and Pasta (\"I have left over vegan pizza and pasta\" - Rag Doll)" },
+    { time: "43:04", category: "Chat", text: "Munching and pronunciation (\"​Maybe the munching will help with Tpaalha pronounciation\" - Miles)" },
+    { time: "43:15", category: "Main", text: "Discussion on modern spelling for Tpaalha" },
+    { time: "44:10", category: "Chat", text: "\"*teleports some vegan pizza and pasta to Jessie*\" - Rag Doll" },
+    { time: "44:42", category: "Main", text: "David discusses flip form diacritics in Tpaalha's modern font" },
+    { time: "46:25", category: "Chat", text: "Jessie drools over Rag Doll's pizza (\"the pizza has potato, vegan cheese, pineapple, basil, artichoke, pumpkin, mushroom and olives\" - Rag Doll)" },
+    { time: "47:10", category: "Main", text: "David questions previous math work for placement of diacritic" },
+    { time: "49:27", category: "Chat Poll", text: "Meaning for new root \"tibosh\"" },
+    { time: "50:48", category: "Chat", text: "\"loud\" suggestion - adjectives derived from nouns in Tpaalha, so need noun and verb suggestions (\"loud\" - Beatrice Palmer)" },
+    { time: "51:08", category: "Chat", text: "Suggestions for root \"tibosh\": to burrow, to hide, to fight, tick, frown, to bite, scratch, kill" },
+    { time: "52:54", category: "Chat", text: "David's suggestion for \"arguing fighting\" to mean \"mouse fighting\"" },
+    { time: "53:20", category: "Main", text: "David's perfectly centered diacritic" },
+    { time: "54:00", category: "Chat", text: "Mice Summits (\"​the mice would hold summits\" - Jake Penny)" },
+    { time: "54:10", category: "Main", text: "Jessie chooses meaning \"to burrow, to hide\" for new root \"tibosh\" and enters it into the dictionary" },
+    { time: "56:35", category: "Main", text: "David tries to position the diacritic to his liking" },
+    { time: "58:32", category: "Chat", text: "Matthijs living in the U.S. (\"​hall pass... that brings up memories of living in the US\" - Matthijs Krul)" },
+    { time: "58:48", category: "Main", text: "Jessie asks about spelling of proto-form retroflex s" },
+    { time: "59:20", category: "Chat", text: "David's Princeton Jelousy (\"​yeah when I was 8 I lived in glorious Princeton, NJ for a year\" - Matthijs Krul)" },
+    { time: "01:00:31", category: "Chat", text: "\"​yeah my mom did stuff at the Institute for Advanced Study I believe\" - Matthijs Krul" },
+    { time: "01:01:41", category: "Chat", text: "\"yeah my mother is (now retired) a professor of ancient Greek history\" - Matthijs Krul" },
+    { time: "01:02:43", category: "Chat", text: "Jessie's hearty hellos and David's hms (\"my parents are visiting in a few weeks actually\" - Matthijs Krul)" },
+    { time: "01:02:57", category: "Main", text: "David recognizes incorrect positioning of some of the diacritics" },
+    { time: "01:03:52", category: "Chat", text: "\"I will say hi for the conlang show! I have mentioned it before :)\" - Matthijs Krul" },
+    { time: "01:03:58", category: "Chat", text: "Quantum Leap thoughts (\"oh boy\" - Jason L)" },
+    { time: "01:04:09", category: "Chat", text: "David sings a terrible song" },
+    { time: "01:04:32", category: "Chat Poll", text: "Jessie asks for suggestions for a word for \"fox\" - psyity, ubu, khoi" },
+    { time: "01:05:03", category: "Main", text: "David realizes the problem with the font - his IPA keyboard was on" },
+    { time: "01:05:37", category: "Chat Question", text: "Sam does encounter Buddy Holly as a kid (\"Big fan of Quantum Leap. Did Sam encounter Buddy Holly?\" - animefan25)" },
+    { time: "01:06:46", category: "Chat", text: "\"​Didn't he inhabit Elvis at one point?\" - The Applesauce Project" },
+    { time: "01:08:09", category: "Chat", text: "Quantum Leap scripts (\"​The best man at my wedding's dad was in the final episode of Quantum Leap. I have his copy of the shooting script with the original scifi ending\" - The Applesauce Project)" },
+    { time: "01:09:58", category: "Chat", text: "Babylon 5 and E.R. (\"​He also played Bester's boss on Babylon 5 and a fireman on E.R. ... On E.R. his character married his real life wife who was one of the background nurses.\" - The Applesauce Project)" },
+    { time: "01:11:07", category: "Chat Question", text: "\"​jessie have you watched any star trek?\" - Jonathan" },
+    { time: "01:11:45", category: "Main", text: "Jessie selects final form for \"fox\" as \"khoi\" and enters it into the dictionary" },
+    { time: "01:13:41", category: "Chat Poll", text: "David asks for opinions on placement of diacritic being 100 from vertical line rather than centered above the vertical line. The latter wins." },
+    { time: "01:16:26", category: "Chat", text: "\"​There's a rainbow unicorn drink!!!!\" - Jake Penny" },
+    { time: "01:19:50", category: "Chat Poll", text: "Diacritic centering over v character vs. left of vertical line. The latter choice made previously remains." },
+    { time: "01:20:34", category: "Kopiko Time", text: "Kopiko Celebration" },
+    { time: "01:20:44", category: "Chat Question", text: "Vegan Kopiko (\"Would vegan kopiko make sense?\" - animefan25)" },
+    { time: "01:22:06", category: "Chat", text: "Cheers with eye contact in Germany" },
+    { time: "01:22:49", category: "Chat", text: "\"yeah in NL too, you have to make eye contact and do it every round\" - Matthijs Krul" },
+    { time: "01:22:57", category: "Chat", text: "\"​In hungarian, you say the same word for cheers and for bless you, its weird\" - Noel Strüning" },
+    { time: "01:25:12", category: "Chat", text: "\"​Some day we will make eye contact Jessie. World better watch out for what happens after that. ... ​It might summon something fierce and magical\" - Minnie Scott" },
+    { time: "01:25:43", category: "Chat", text: "Jessie wonders what otoh means - on the other hand (\"@Jake Penny otoh Americans love to talk to strangers randomly\" - Matthijs Krul)" },
+    { time: "01:25:56", category: "Chat", text: "\"​Jessie doesnt need to fight, she can break people with her eyes if she wants to\" - Noel Strüning" },
+    { time: "01:26:16", category: "Main", text: "Jessie mentions 2 things: There's 30 minutes left and need to think about a Poll. July 1st will be a new podcast release. David mentions thing 3: This episode will end slightly (5 minutes) early for a chat for a new movie they are working on." },
+    { time: "01:28:58", category: "Main", text: "David is on last two glyphs with diacritics, and asks Jessie how the diacritics should be centered on them." },
+    { time: "01:31:16", category: "Chat", text: "Diacritic centered above middle line? (\"​My gut says middle line, but the white space seems intriguing\" - Miles)" },
+    { time: "01:31:48", category: "Main", text: "Jessie suspects diminutives for nouns and verbal derivatioons haven't been done yet. The only nominal derivation is an augmentative." },
+    { time: "01:32:58", category: "Main", text: "David having font problems" },
+    { time: "01:33:54", category: "Chat Question", text: "No greetings yet in Tpaalha (\"​Have any greetings and such been done?\" - Miles)" },
+    { time: "01:34:06", category: "Chat Poll", text: "Position of diacritic: centered over center line, centered right of center line, or centered over whitespace between vertical lines. The third option wins." },
+    { time: "01:35:53", category: "Chat Poll", text: "Position of diacritic over character with just vertical line: extend midline to left to accomodate diacritic to left?" },
+    { time: "01:35:59", category: "Chat", text: "\"​special accent?\" - Jake Penny" },
+    { time: "01:37:06", category: "Chat", text: "\"It remids me of Ί Έ Ό ... ​Like greek capital letters\" - Noel Strüning" },
+    { time: "01:38:10", category: "Chat", text: "\"dash through a la ł?\" - Jake Penny" },
+    { time: "01:38:23", category: "Main", text: "David creates new glyphs for poll: diacritic, dash near top, top bar, or top bar with serifs" },
+    { time: "01:40:18", category: "Chat", text: "David: \"Plop on down like a pumpkin\"" },
+    { time: "01:41:37", category: "Main", text: "David is disgusted at incorrect angle of glyph" },
+    { time: "01:43:06", category: "Chat", text: "David's friend's text message" },
+    { time: "01:43:52", category: "Chat", text: "\"That needs fixed\"" },
+    { time: "01:44:04", category: "Chat", text: "\"​sorry was cleaning the keyboard, had greasy pizza paws over it ... thanks Jessie\" - Rag Doll" },
+    { time: "01:44:22", category: "Chat", text: "Song by the decemberists, \"Everything is Aweful\"" },
+    { time: "01:44:59", category: "Chat Question", text: "\"Isn't that song in the Lego Movie?\" - Miles" },
+    { time: "01:45:47", category: "Chat", text: "Movie: The Last Dragon (1985)" },
+    { time: "01:46:55", category: "Chat", text: "Nuthach (\"a nuthatch is a small bird that can walk around on tree bark in all directions in search of bugs to eat. they also sometimes stuff food in crevices and peck at it (to open seeds, etc)\" - Jonathan)" },
+    { time: "01:47:38", category: "Main", text: "David asks how to center the top bar of the glyph" },
+    { time: "01:49:42", category: "Chat", text: "The Boondocks" },
+    { time: "01:51:30", category: "Main", text: "David tries one more glyph for the poll, making 5 options in total" },
+    { time: "01:54:39", category: "Main", text: "End" },
+]
+const episode235Fuse = new Fuse(episode235, { findAllMatches: true, shouldSort: true, includeScore: true, keys: [{ name: 'category', weight: 0.7 }, { name: 'text', weight: 0.3 }], threshold: 0.5, distance: 120 })
 
 var app = new Vue({
     el: "#app",
@@ -193,26 +317,35 @@ var app = new Vue({
                 time = moment(timeString, 'mm:ss')
             }
             seconds = time.seconds() + (time.minutes() * 60) + (time.hours() * 60 * 60)
-            return episode236Url + "?t=" + seconds;
+            return this.getCurrentEpisode().url + "&t=" + seconds + "s";
         },
         showIndex: function() {
             this.page = "index";
             this.episodeShown = false;
             this.indexShown = true;
             this.search = "";
+            this.currentEpisode = "";
         },
-        showEpisode: function() {
+        showEpisode: function(ep) {
             this.search = "";
             this.page = "episode";
             this.indexShown = false;
             this.episodeShown = true;
-        }
+            this.currentEpisode = ep;
+        },
+        getCurrentEpisode: function() {
+            if (this.currentEpisode == "235") {
+                return { data: this.episode235, fuse: episode235Fuse, url: episode235Url }
+            } else if (this.currentEpisode == "236") {
+                return { data: this.episode236, fuse: episode236Fuse, url: episode236Url }
+            }
+        },
     },
     computed: {
         getEpisodeInfo: function() {
             var that = this;
             if (this.search == "") {
-                return episode236.filter((annotation) => {
+                return this.getCurrentEpisode().data.filter((annotation) => {
                     return (annotation.category == "" && that.mainFilter)
                         || (annotation.category == "Poll" && that.pollFilter)
                         || (annotation.category == "Chat" && that.chatFilter)
@@ -221,7 +354,7 @@ var app = new Vue({
                         || (annotation.category == "Kopiko Time" && that.kopikoTimeFilter);
                 })
             }
-            return episode236Fuse.search(this.search).filter((annotation) => {
+            return this.getCurrentEpisode().fuse.search(this.search).filter((annotation) => {
                 return (annotation.item.category == "" && that.mainFilter)
                     || (annotation.item.category == "Poll" && that.pollFilter)
                     || (annotation.item.category == "Chat" && that.chatFilter)
@@ -229,15 +362,17 @@ var app = new Vue({
                     || (annotation.item.category == "Chat Poll" && that.chatPollFilter)
                     || (annotation.item.category == "Kopiko Time" && that.kopikoTimeFilter);
             })
-        }
+        },
     },
     data: {
+        episode235: episode235,
         episode236: episode236,
         index: index,
         search: "",
         indexShown: true,
         episodeShown: false,
         page: "index", // index or episode
+        currentEpisode: "",
 
         mainFilter: true,
         pollFilter: true,
