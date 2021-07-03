@@ -3,6 +3,9 @@
     <head>
         <title>Langtime Annotations - Episode 236</title>
         <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <style>
             .container {
                 margin: auto;
@@ -11,6 +14,8 @@
             h1 {
                 border-bottom: 1px solid #444444;
                 margin-bottom: 15px;
+                font-family: sans-serif;
+                font-weight: 100;
             }
             .backbutton {
                 border: 1px solid #999999;
@@ -23,9 +28,12 @@
                 background-color: #CCCCCC;
                 cursor: pointer;
             }
-            input {
+            input[type="text"] {
                 padding: 5px;
                 width: 250px;
+            }
+            label {
+                margin-right: 5px;
             }
             .list {
                 margin-top: 10px;
@@ -64,7 +72,7 @@
         <div id="app" class="container">
             <div v-if="indexShown">
                 <h1>Langtime Annotations - Index</h1>
-                <input v-model="search" class="fuzzy-search" placeholder="Search Annotations...">
+                <input type="text" v-model="search" class="fuzzy-search" placeholder="Search All Annotations...">
                 <div class="list">
                     <div v-for="ep in index" :key="ep.episode" class="listitem" v-on:click="showEpisode()">
                         Episode {{ ep.episode }}
@@ -73,7 +81,13 @@
             </div>
             <div v-if="episodeShown">
                 <h1>Langtime Annotations - Episode 236</h1>
-                <span class="backbutton" v-on:click="showIndex()">← Index</span> <input v-model="search" class="fuzzy-search" placeholder="Search Episode Annotations...">
+                <span class="backbutton" v-on:click="showIndex()">← Index</span> <input type="text" v-model="search" class="fuzzy-search" placeholder="Search Episode Annotations...">
+                <div style="margin-top: 10px;">
+                    Filters: <input type="checkbox" name="main" :checked="mainFilter" v-model="mainFilter"><label for="main">Main</label>
+                    <input type="checkbox" name="poll" :checked="pollFilter" v-model="pollFilter"><label for="poll">Poll</label>
+                    <input type="checkbox" name="chat" :checked="chatFilter" v-model="chatFilter"><label for="chat">Chat</label>
+                    <input type="checkbox" name="chatquestion" :checked="chatQuestionFilter" v-model="chatQuestionFilter"><label for="chatquestion">Chat Question</label>
+                </div>
                 <div class="list">
                     <a v-for="annotation in getEpisodeInfo" :key="(annotation.item || annotation).text" class="listitem" :href="getUrl((annotation.item || annotation).time)">
                         <span class="timestamp">{{ (annotation.item || annotation).time }}</span> <span class="category">{{ (annotation.item || annotation).category || "Main" }}</span><br>

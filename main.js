@@ -209,10 +209,21 @@ var app = new Vue({
     },
     computed: {
         getEpisodeInfo: function() {
+            var that = this;
             if (this.search == "") {
-                return this.episode236
+                return episode236.filter((annotation) => {
+                    return (annotation.category == "Main" && that.mainFilter)
+                        || (annotation.category == "Poll" && that.pollFilter)
+                        || (annotation.category == "Chat" && that.chatFilter)
+                        || (annotation.category == "Chat Question" && that.chatQuestionFilter);
+                })
             }
-            return episode236Fuse.search(this.search)
+            return episode236Fuse.search(this.search).filter((annotation) => {
+                return (annotation.item.category == "Main" && that.mainFilter)
+                    || (annotation.item.category == "Poll" && that.pollFilter)
+                    || (annotation.item.category == "Chat" && that.chatFilter)
+                    || (annotation.item.category == "Chat Question" && that.chatQuestionFilter);
+            })
         }
     },
     data: {
@@ -222,5 +233,10 @@ var app = new Vue({
         indexShown: true,
         episodeShown: false,
         page: "index", // index or episode
+
+        mainFilter: true,
+        pollFilter: true,
+        chatFilter: true,
+        chatQuestionFilter: true,
     }
 })
