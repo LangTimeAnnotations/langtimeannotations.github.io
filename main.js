@@ -335,9 +335,9 @@ var app = new Vue({
         },
         getCurrentEpisode: function() {
             if (this.currentEpisode == "235") {
-                return { data: this.episode235, fuse: episode235Fuse, url: episode235Url }
+                return { data: this.episode235, fuse: episode235Fuse, url: episode235Url, name: "235" }
             } else if (this.currentEpisode == "236") {
-                return { data: this.episode236, fuse: episode236Fuse, url: episode236Url }
+                return { data: this.episode236, fuse: episode236Fuse, url: episode236Url, name: "236" }
             }
         },
     },

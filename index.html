@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div v-if="episodeShown">
-                <h1>Langtime Annotations - Episode 236</h1>
+                <h1>Langtime Annotations - Episode {{ getCurrentEpisode().name }}</h1>
                 <span class="backbutton" v-on:click="showIndex()">← Index</span> <input type="text" v-model="search" class="fuzzy-search" placeholder="Search Episode Annotations...">
                 <div style="margin-top: 10px;">
                     Filters: <input type="checkbox" name="main" :checked="mainFilter" v-model="mainFilter"><label for="main" v-on:click="mainFilter = !mainFilter;">Main</label>
