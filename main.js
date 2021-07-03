@@ -167,16 +167,16 @@ var episode236 = [
     { time: "01:57:32", category: "Chat Question", text: "Logographic Fonts; David and Jessie's secret conlang project with logographic script (\"Is it possible to create a digital font for a conscript that is a logography?\" - Beatrice Palmer)" },
     { time: "01:59:11", category: "Chat Poll", text: "David's new glyph for number 6" },
     { time: "02:00:00", category: "", text: "David quickly creates glyph for zero, which he forgot to do." },
-    { time: "02:01:11", category: "", text: "Jessie's Sidenote: Emo's Pizza" },
+    { time: "02:01:11", category: "Chat", text: "Jessie's Sidenote: Emo's Pizza" },
     { time: "02:01:50", category: "Chat", text: "Motherland Language (\"I like Motherland and the conlang is neat\" - Chris Helvey)" },
     { time: "02:02:14", category: "Chat", text: "Why a zero? Reason: There already was a zero in the proto-language." },
     { time: "02:03:10", category: "Chat", text: "Where to watch Motherland outside of US (\"it's on either disney+ or netfix here since we don't hav hulu\" - Evan Swart)" },
-    { time: "02:03:45", category: "", text: "David's Gameshow opportunity taken away due to Motherland work" },
+    { time: "02:03:45", category: "Chat", text: "David's Gameshow opportunity taken away due to Motherland work" },
     { time: "02:04:34", category: "", text: "Font done! Only kerning and flipping left." },
     { time: "02:05:50", category: "", text: "David and Jessie tease next episode's surprise." },
     { time: "02:06:33", category: "", text: "Season 2 Podcast episodes released publicly soon. Season 3 next week." },
     { time: "02:07:28", category: "", text: "Surprise Hint? Hint possibly already given in episode previously, from a suggestion by David." },
-    { time: "02:09:10", category: "", text: "Dreaming of Kopiko sponsorship and T-shirts" },
+    { time: "02:09:10", category: "Chat", text: "Dreaming of Kopiko sponsorship and T-shirts" },
 ]
 
 const episode236Fuse = new Fuse(episode236, { findAllMatches: true, shouldSort: true, includeScore: true, keys: [{ name: 'category', weight: 0.7 }, { name: 'text', weight: 0.3 }], threshold: 0.5, distance: 120 })
