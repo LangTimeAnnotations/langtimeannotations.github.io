@@ -13,7 +13,7 @@ var episode236 = [
     { time: "05:25", category: "Chat", text: "Pronunciation of Ogham" },
     { time: "06:05", category: "", text: "David highlights preferred glyphs in red" },
     { time: "06:35", category: "Poll", text: "Poll discussion (5 options)" },
-    { time: "08:02", category: "Poll Winner", text: "Option A with diacritic chosen for flipped l" },
+    { time: "08:02", category: "Poll", text: "Winner: Option A with diacritic chosen for flipped l" },
     { time: "08:23", category: "Chat", text: "\"The poll was a bit poll-arizing\" - Miles" },
     { time: "09:23", category: "", text: "Jessie double checks poll for sound of new glyph" },
     { time: "09:42", category: "", text: "Places new glyph in font" },
@@ -76,7 +76,7 @@ var episode236 = [
     { time: "38:31", category: "", text: "David tests new glyphs for question mark and single quote" },
     { time: "38:57", category: "Chat", text: "David asks for meaning of \"ganz gut\". Jessie responds that it means \"entirely good\"." },
     { time: "39:23", category: "Chat Poll", text: "Position of diacritic on question mark glyph (A = centered diacritic; B = right-aligned diacritic)" },
-    { time: "41:53", category: "Chat Poll", text: "Winner A = 10; B = 6" },
+    { time: "41:53", category: "Chat Poll", text: "Winner: A = 10; B = 6" },
     { time: "41:58", category: "", text: "Celebrate, with Kopiko, David being right on number of A votes" },
     { time: "42:30", category: "Chat", text: "\"the average person only has two eyes, it's reasonable that you were surprised bib has three\" - Magpie" },
     { time: "43:01", category: "", text: "David discusses kerning of question mark glyph" },
@@ -148,7 +148,7 @@ var episode236 = [
     { time: "01:40:13", category: "Chat Question", text: "Langtime languages as improvement over David's old languages? Not really (\"i mean does the language, have to be like zhyler? it could take on a life of its own!!!\" - Evan Swart)" },
     { time: "01:41:05", category: "", text: "David's concerns - window glyph, similarity of glyphs 1-3, and two versions of glyph 6" },
     { time: "01:42:09", category: "Chat Poll", text: "Pick out of two glyphs for 6 (A = diamond, B = upsidedown triangle, C = do something different)" },
-    { time: "01:42:57", category: "Chat Poll", text: "Winner C (do something different for glyph of number 6) wins overwhelmingly within seconds" },
+    { time: "01:42:57", category: "Chat Poll", text: "Winner: C (do something different for glyph of number 6) wins overwhelmingly within seconds" },
     { time: "01:43:29", category: "", text: "David tries bottom half of diamond" },
     { time: "01:43:50", category: "Chat Question", text: "Patreons picking next language for next patreon livestreams (\"So will the patrons pick between Engala and Tpaalha in our livestreams or will we move on to mostly Tpaalhaing now?\" - Jake Penny)" },
     { time: "01:44:17", category: "Chat Poll", text: "Half Diamond for glyph for number 6?" },
@@ -215,14 +215,16 @@ var app = new Vue({
                     return (annotation.category == "" && that.mainFilter)
                         || (annotation.category == "Poll" && that.pollFilter)
                         || (annotation.category == "Chat" && that.chatFilter)
-                        || (annotation.category == "Chat Question" && that.chatQuestionFilter);
+                        || (annotation.category == "Chat Question" && that.chatQuestionFilter)
+                        || (annotation.category == "Chat Poll" && that.chatPollFilter);
                 })
             }
             return episode236Fuse.search(this.search).filter((annotation) => {
                 return (annotation.item.category == "" && that.mainFilter)
                     || (annotation.item.category == "Poll" && that.pollFilter)
                     || (annotation.item.category == "Chat" && that.chatFilter)
-                    || (annotation.item.category == "Chat Question" && that.chatQuestionFilter);
+                    || (annotation.item.category == "Chat Question" && that.chatQuestionFilter)
+                    || (annotation.item.category == "Chat Poll" && that.chatPollFilter);
             })
         }
     },
@@ -238,5 +240,6 @@ var app = new Vue({
         pollFilter: true,
         chatFilter: true,
         chatQuestionFilter: true,
+        chatPollFilter: true,
     }
 })

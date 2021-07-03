@@ -87,6 +87,7 @@
                     <input type="checkbox" name="poll" :checked="pollFilter" v-model="pollFilter"><label for="poll">Poll</label>
                     <input type="checkbox" name="chat" :checked="chatFilter" v-model="chatFilter"><label for="chat">Chat</label>
                     <input type="checkbox" name="chatquestion" :checked="chatQuestionFilter" v-model="chatQuestionFilter"><label for="chatquestion">Chat Question</label>
+                    <input type="checkbox" name="chatpoll" :checked="chatPollFilter" v-model="chatPollFilter"><label for="chatpoll">Chat Poll</label>
                 </div>
                 <div class="list">
                     <a v-for="annotation in getEpisodeInfo" :key="(annotation.item || annotation).text" class="listitem" :href="getUrl((annotation.item || annotation).time)">
