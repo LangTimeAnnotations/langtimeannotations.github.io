@@ -175,7 +175,7 @@ var episode236 = [
     { time: "02:09:10", category: "", text: "Dreaming of Kopiko sponsorship and T-shirts" },
 ]
 
-const episode236Fuse = new Fuse(episode236, { shouldSort: false, includeScore: true, keys: ['category', 'text'] })
+const episode236Fuse = new Fuse(episode236, { findAllMatches: true, shouldSort: true, includeScore: true, keys: ['category', 'text'], threshold: 0.5, distance: 120 })
 
 var app = new Vue({
     el: "#app",
